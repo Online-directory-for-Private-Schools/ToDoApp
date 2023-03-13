@@ -11,9 +11,11 @@ switch($vars['action']){
     }break;
 
     case "do_add":{
-        $db->query("INSERT INTO items (title) VALUES (?)",$vars['title']);
+        $date=date_create();
+
+        $db->query("INSERT INTO items (title, create_time) VALUES (?,?)",$vars['title'], date_timestamp_get($date));
         header("location: index.php");
-        exit;        
+        exit;
         
     }break;
     
@@ -25,7 +27,9 @@ switch($vars['action']){
     }break;
     
     case "do_edit":{
-        //some code here to edit and save...
+        $db->query("UPDATE items SET title = (?) WHERE item_id = (?)", $vars["title"],$vars["item_id"]);
+
+        header("location: index.php");
         exit;
     }break;
     
