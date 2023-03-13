@@ -22,7 +22,6 @@ let editBtnClicked = (editBtn, id) => {
   } else {
     // in this case, the button does the "confirm" task
 
-    console.log(inputEl);
 
     if (!inputValue) return; // to prevent empty todo
 
