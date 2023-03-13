@@ -2,7 +2,7 @@
 
 switch($vars['action']){
     case "list":{
-        $items = $db->query('SELECT * FROM items')->fetchAll();
+        $items = $db->query('SELECT * FROM `items`')->fetchAll();
         
         include("view/header.php");
         include("view/list.php");
@@ -20,7 +20,9 @@ switch($vars['action']){
     }break;
     
     case "delete":{
-        //Some code here to delete ....
+        $db->query("DELETE FROM items WHERE ITEM_ID=(?)",$vars['item_id']);
+        header("location: index.php");
+        exit;      
         exit;        
     }break;
     
