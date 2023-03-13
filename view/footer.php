@@ -4,7 +4,7 @@
 </div>
 
 <script>
-let editBtnClicked = (editBtn, id) => {
+let editBtnClicked = (editBtn, id, confirmStr) => {
   // check if current todo is being edited or not
 
   let inputEl = document.getElementById(`todoInput-${id}`);
@@ -18,7 +18,8 @@ let editBtnClicked = (editBtn, id) => {
     inputEl.value = "";
     inputEl.value = inputValue;
 
-    editBtn.innerText = "Confirm"; // change the button's text to "confirm"
+    console.log(confirmStr)
+    editBtn.innerText = confirmStr; // change the button's text to "confirm"
   } else {
     // in this case, the button does the "confirm" task
 
