@@ -11,7 +11,9 @@ switch($vars['action']){
     }break;
 
     case "do_add":{
-        $db->query("INSERT INTO items (title) VALUES (?)",$vars['title']);
+        $date=date_create();
+        
+        $db->query("INSERT INTO items (title, create_time) VALUES (?,?)",$vars['title'], date_timestamp_get($date));
         header("location: index.php");
         exit;        
         
