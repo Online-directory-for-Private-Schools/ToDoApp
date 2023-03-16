@@ -9,10 +9,15 @@ switch($vars['action']){
 
         //TODO: make index.php handle auth
 
-
+        
         $email = $vars['email'];
         $username = $vars['username'];
         $password = $vars['password'];
+        
+        if ( $email= null || $username = null|| $password == null) {
+            header("location: signup.php");
+            exit;
+        }
 
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?)", $email)->fetchAll();
 
