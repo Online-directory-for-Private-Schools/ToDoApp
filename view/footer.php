@@ -25,6 +25,14 @@ let editBtnClicked = (editBtn, id, confirmStr) => {
   }
 };
 
+// return to login page with logging out
+function logout() {
+  location = "login.php?action=logout";
+}
 
+// rediret to signup
+function redirect() {
+  location = "signup.php";
+}
 </script>
 </body>

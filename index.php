@@ -2,7 +2,6 @@
 
 include("init.php");
 include("modules/authentication.php");
-
 // function checkCookie($id) {
 //     global $db;
 //     $user_id= $id;
@@ -18,6 +17,7 @@ if ( isset($_COOKIE["id"]) ) {
 
     if (!isset($vars['action'])) {
         $vars['action']='list';
+        $vars['user'] = $_COOKIE["id"];
     }
 
 } else {

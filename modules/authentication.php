@@ -39,8 +39,8 @@ switch($vars['action']){
 
     case "login":{
         
-        $email = $vars['email'] | ' ';
-        $password = $vars['password'] | ' ';
+        $email = $vars['email'] ?? ' ';
+        $password = $vars['password'] ?? ' ';
 
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?) AND password=(?)", $email, $password) ->fetchAll();
 
@@ -59,7 +59,7 @@ switch($vars['action']){
 
 
         // TODO: make index.php handle login
-        header("location: index.php");
+        header("location: index.php?user=".$newUser["user_id"]);
 
         
         exit;

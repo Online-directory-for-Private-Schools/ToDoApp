@@ -10,6 +10,14 @@ if($isError){
 }
 
 ?>
+  <div class="row justify-content-center align-items-center main-row text-left">
+    <div class="col shadow main-col bg-white">
+      <div class="row bg-primary text-white">
+        <div class="col  p-2">
+          <h4><?php echo LANG_APP_NAME;?></h4>
+
+        </div>
+      </div>
 
 <form action="login.php" method="get" class="p-4">
   <div class="alert alert-danger <?php if(!$isError) {echo "invisible";} ?>" role="alert">
@@ -28,10 +36,4 @@ if($isError){
   <button type="submit" class="btn btn-primary"><?php echo LANG_LOGIN ?></button>
   <button type="button" class="btn btn-secondary" onclick="redirect()"><?php echo LANG_SIGNUP ?></button>
 </form>
-
-<script>
-function redirect() {
-  location = "signup.php";
-}
-</script>
 
