@@ -9,15 +9,20 @@ switch($vars['action']){
 
         //TODO: make index.php handle auth
 
-
+        
         $email = $vars['email'];
         $username = $vars['username'];
         $password = $vars['password'];
+        
+        if ( $email= null || $username = null|| $password == null) {
+            header("location: signup.php");
+            exit;
+        }
 
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?)", $email)->fetchAll();
 
         if(sizeof($existingUsers) > 0) {
-            header("location: reigster.php?error=User already exists");
+            header("location: signup.php?error=User already exists");
             exit;
         }
 
@@ -81,5 +86,18 @@ switch($vars['action']){
 }
 
 // function to check if the user hasn't touched the cookie id
-
+function checkCookie($id) {
+    global $db;
+    $user_id= $id;
+    $users = $db->query("SELECT user_id FROM users WHERE user_id=(?)", $user_id)->fetchAll();
+    
+    foreach($users as $i) {
+        foreach($i as $j) {
+            if( $id == $j) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ?>
