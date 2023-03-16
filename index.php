@@ -4,7 +4,7 @@ include("init.php");
 include("modules/authentication.php");
 
 
-if ( isset($_COOKIE["id"]) ) {
+if ( checkCookie($_COOKIE["id"]) ) {
 
     if (!isset($vars['action'])) {
         $vars['action']='list';

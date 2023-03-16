@@ -89,11 +89,15 @@ switch($vars['action']){
 function checkCookie($id) {
     global $db;
     $user_id= $id;
-    $users = $db->query("SELECT * FROM users WHERE user_id=(?)", $user_id)->fetchAll();
+    $users = $db->query("SELECT user_id FROM users WHERE user_id=(?)", $user_id)->fetchAll();
     
-    if(!in_array(array($id), $users)) {
+    foreach($users as $i) {
+        foreach($i as $j) {
+            if( $id == $j) {
+                return true;
+            }
+        }
         return false;
     }
-    return true;
 }
 ?>
