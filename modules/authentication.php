@@ -86,5 +86,14 @@ switch($vars['action']){
 }
 
 // function to check if the user hasn't touched the cookie id
-
+function checkCookie($id) {
+    global $db;
+    $user_id= $id;
+    $users = $db->query("SELECT * FROM users WHERE user_id=(?)", $user_id)->fetchAll();
+    
+    if(!in_array(array($id), $users)) {
+        return false;
+    }
+    return true;
+}
 ?>
