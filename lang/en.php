@@ -9,5 +9,7 @@ define('LANG_USERNAME', 'User-name');
 define('LANG_EMAIL_ADDRESS', 'Email address');
 define('LANG_PASSWORD', 'Password');
 define('LANG_LOGIN', 'Login');
+define('LANG_SIGNUP', 'Sign up');
+define('LANG_LOGOUT', 'Logout');
 
 ?>

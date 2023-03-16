@@ -26,5 +26,12 @@ if($isError){
     <input name="password" type="password" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-primary"><?php echo LANG_LOGIN ?></button>
+  <button type="button" class="btn btn-secondary" onclick="redirect()"><?php echo LANG_SIGNUP ?></button>
 </form>
+
+<script>
+function redirect() {
+  location = "signup.php";
+}
+</script>
 
