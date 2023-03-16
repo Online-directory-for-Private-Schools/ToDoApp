@@ -1,8 +1,3 @@
-        </div>
-    
-  </div>
-</div>
-
 <script>
 let editBtnClicked = (editBtn, id, confirmStr) => {
   // check if current todo is being edited or not

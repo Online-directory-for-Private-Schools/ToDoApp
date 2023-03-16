@@ -2,7 +2,8 @@
 
 include("init.php");
 
-include("modules/login.php");
+include("modules/authentication.php");
+
 
 include("view/header.php");
 include("view/login.php");
