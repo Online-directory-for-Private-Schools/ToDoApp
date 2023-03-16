@@ -17,7 +17,7 @@ switch($vars['action']){
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?)", $email)->fetchAll();
 
         if(sizeof($existingUsers) > 0) {
-            header("location: reigster.php?error=User already exists");
+            header("location: signup.php?error=User already exists");
             exit;
         }
 
