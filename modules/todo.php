@@ -23,7 +23,6 @@ switch($vars['action']){
         $db->query("DELETE FROM items WHERE ITEM_ID=(?)",$vars['item_id']);
         header("location: index.php");
         exit;      
-        exit;        
     }break;
     
     case "do_edit":{

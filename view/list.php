@@ -6,12 +6,12 @@
               <input id="todo-input" name="title" type="text" class="form-control" value="">
             </div>
             <button type="submit" class="btn btn-primary mb-2 ml-2"><?php echo LANG_ADD_ITEM;?></button>
-        
       </div>
-     </form> 
+     </form>
+
+
       <div class="row" id="todo-container">
           <?php 
-
             for ($i=0;$i<count($items);$i++){
             ?>
             
@@ -29,7 +29,7 @@
 
 
                     <button  class="btn btn-outline-secondary bg-danger text-white" type="button"  id="button-addon2" onclick="location='index.php?action=delete&item_id=<?php echo $items[$i]['item_id'];?>'">X</button>
-
+                  
                   </div>
                   </div>
             </div>
