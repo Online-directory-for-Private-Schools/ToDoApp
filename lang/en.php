@@ -11,5 +11,7 @@ define('LANG_PASSWORD', 'Password');
 define('LANG_LOGIN', 'Login');
 define('LANG_SIGNUP', 'Sign up');
 define('LANG_LOGOUT', 'Logout');
+define('LANG_LOGIN_ERR', 'Either email or password are not correct');
+define('LANG_USER_EXISTS', 'User already exists');
 
 ?>
