@@ -14,7 +14,7 @@ switch($vars['action']){
         $username = $vars['username'];
         $password = $vars['password'];
         
-        if ( $email= null || $username = null|| $password == null) {
+        if ( $email == null || $username == null|| $password == null) {
             header("location: signup.php");
             exit;
         }
