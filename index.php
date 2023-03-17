@@ -3,6 +3,9 @@
 include("init.php");
 include("modules/authentication.php");
 
+$user = null;
+
+$cookieCheck = checkCookie($_COOKIE["token"]);
 
 $user = null;
 
@@ -17,6 +20,8 @@ if ( $cookieCheck["isValid"] ) {
     $user = $cookieCheck["user"];
     
 } else {
+    // set default langue for all user as en
+    setcookie("lang", "en");
     header("location: login.php");
 }
 

@@ -1,4 +1,7 @@
 <script>
+function changeLang() {
+  document.cookie = "lang="
+}
 let editBtnClicked = (editBtn, id, confirmStr) => {
   // check if current todo is being edited or not
 

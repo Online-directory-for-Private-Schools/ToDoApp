@@ -1,13 +1,28 @@
+<div class="d-flex justify-content-between">
 
-<button type="submit" class="btn btn-primary " onclick="logout()"><?php echo LANG_LOGOUT ?></button>
+<form method="get" class="p-4">
+  <select name="lang" onchange="this.form.submit()" id="lang" >
+    <option default value="en"><?php echo LANG_CHOOSE?></option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+  </select>
+</form>
+
+<div class="d-flex align-items-center">
+  <button type="submit" class="btn btn-primary " onclick="logout()"><?php echo LANG_LOGOUT ?></button>
+
+</div>
+
+</div>
   <div class="row justify-content-center align-items-center main-row text-left">
     <div class="col shadow main-col bg-white">
       <div class="row bg-primary text-white">
         <div class="col  p-2">
-          <h4><?php echo LANG_APP_NAME;?></h4>
-
+          <h4>Welcome <?php echo $user["username"] ?> to<?php echo LANG_APP_NAME;?></h4>
         </div>
       </div>
+
+
 <form action="index.php" method="get">
   <input type="hidden" name="user" value="<?php echo $vars['user']?>" />
   <input type="hidden" name="action" value="do_add" />

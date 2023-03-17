@@ -22,7 +22,7 @@ switch($vars['action']){
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?)", $email)->fetchAll();
 
         if(sizeof($existingUsers) > 0) {
-            header("location: signup.php?error=User already exists");
+            header("location: signup.php?error=".LANG_USER_EXISTS);
             exit;
         }
 
@@ -54,7 +54,7 @@ switch($vars['action']){
         $existingUsers = $db->query("SELECT * FROM users WHERE email=(?) AND password=(?)", $email, $password) ->fetchAll();
 
         if(sizeof($existingUsers) == 0) {
-            header("location: login.php?error=Either email or password are not correct");
+            header("location: login.php?error=".LANG_LOGIN_ERR);
             exit;
         }
 
@@ -104,6 +104,7 @@ function checkCookie($token) {
             "isValid" => false,
             "user" => null
         );
+
     }
 
     try {
@@ -112,7 +113,7 @@ function checkCookie($token) {
         $decoded_UserID = $decodedJWT->id;
 
 
-        $candidateUser = $db->query("SELECT user_id FROM users WHERE user_id=(?)", $decoded_UserID)->fetchAll()[0];
+        $candidateUser = $db->query("SELECT user_id, username FROM users WHERE user_id=(?)", $decoded_UserID)->fetchAll()[0];
 
         
         $isCookieValid = isTokenValid($decodedJWT);
@@ -120,7 +121,6 @@ function checkCookie($token) {
     } catch (Exception $e) {
         $isCookieValid = false;
     }
-
 
     return array(
         "isValid" => $isCookieValid,

@@ -18,15 +18,14 @@ ini_set('display_startup_errors', 1);
 
 include("lib/db.php");
 include("lib/utils.php");
+$vars=get_input_vars(); 
+// sets the language to 
+// the one specified by user
+// must be after $vars
+include("modules/lang.php");
 
-$vars=get_input_vars();
-
-$lang = 'en';
-
-if($vars["lang"] == "fr"){
-    $lang = 'fr';
-}
-
+// set the language from cookies
+$lang = $_COOKIE["lang"];
 include("lang/".$lang.".php");
 
 
