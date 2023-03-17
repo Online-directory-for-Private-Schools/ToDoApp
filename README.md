@@ -20,12 +20,14 @@ https://todo-app-challenge-2.000webhostapp.com/
    composer install
    ```
 
-4. Create a .env file from the provided example:
+4. Open PhpMyAdmin and create a MySQL database and run the scripts inside /sql to create the tables
+
+5. Create a .env file from the provided example:
    
    ```bash
    mv .env.example .env 
    ```
 
-5. Edit the environment variables inside .env based on your information.
+6. Edit the environment variables inside .env based on your information.
 
-6. Move the folder to your **htdocs** directory and run your php server (ex, using xampp)
+7. Move the folder to your **htdocs** directory and run your php server (ex, using xampp)
