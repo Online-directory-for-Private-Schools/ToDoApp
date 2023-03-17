@@ -19,6 +19,7 @@ switch($vars['action']){
 
         if($user == null || !isAuthorized()) {
             header("location: login.php");
+            exit;
         }
 
         $user_id = $user["user_id"];

@@ -18,10 +18,11 @@
     <div class="col shadow main-col bg-white">
       <div class="row bg-primary text-white">
         <div class="col  p-2">
-          <h4><?php echo LANG_APP_NAME;?></h4>
-
+          <h4>Welcome <?php echo $user["username"] ?> to<?php echo LANG_APP_NAME;?></h4>
         </div>
       </div>
+
+
 <form action="index.php" method="get">
   <input type="hidden" name="user" value="<?php echo $vars['user']?>" />
   <input type="hidden" name="action" value="do_add" />
