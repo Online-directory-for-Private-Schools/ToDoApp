@@ -3,19 +3,26 @@
 include("init.php");
 include("modules/authentication.php");
 
-if ( checkCookie($_COOKIE["id"]) ) {
+$user = null;
+
+$cookieCheck = checkCookie($_COOKIE["token"]);
+
+if ( $cookieCheck["isValid"] ) {
     
     if (!isset($vars['action'])) {
         $vars['action']='list';
-        $vars['user'] = $_COOKIE["id"];
     }
+    
+    $user = $cookieCheck["user"];
     
 } else {
     // set default langue for all user as en
     setcookie("lang", "en");
     header("location: login.php");
-    
 }
 
+
 include("modules/todo.php");
+
+
 ?>
