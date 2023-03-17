@@ -6,45 +6,66 @@ switch($vars['action']){
             SELECT * 
             FROM items 
             WHERE user_id = (?)
-            ', $vars['user'])->fetchAll();
+            ', $user["user_id"])->fetchAll();
         
         include("view/header.php");
         include("view/list.php");
         include("view/footer.php");
         exit;
-    }break;
+    }
 
     case "do_add":{
-        if ( !isset($vars['user'])) {
-            // header("location: index.php");
-            break;
+
+
+        if($user == null || !isAuthorized()) {
+            header("location: login.php");
         }
-        $date=date_create();
-        $db->query("INSERT INTO items (title, create_time, user_id) VALUES (?,?,?)",$vars['title'], date_timestamp_get($date), $vars['user']);
+
+        $user_id = $user["user_id"];
+
+        $date=date_timestamp_get(date_create());
+
+        $db->query("INSERT INTO items (title, create_time, user_id) VALUES (?,?,?)",$vars['title'], $date, $user_id);
+
         header("location: index.php");
         exit;
         
-    }break;
+    }
     
     case "delete":{
+
+        if($user == null || !isAuthorized()) {
+            header("location: login.php");
+        }
+
         $db->query("DELETE FROM items WHERE ITEM_ID=(?)",$vars['item_id']);
         header("location: index.php");
         exit;      
-    }break;
+    }
     
     case "do_edit":{
+        
+        if($user == null || !isAuthorized()) {
+            header("location: login.php");
+        }
+
         $db->query("UPDATE items SET title = (?) WHERE item_id = (?)", $vars["title"],$vars["item_id"]);
 
         header("location: index.php?user=".$vars['user']);
         exit;
-    }break;
+    }
     
     case "help":{
         //some code here to show help 
         exit;
-    }break;
+    }
     
     
+}
+
+
+function isAuthorized() {
+    return checkCookie($_COOKIE["token"])["isValid"];
 }
 
 ?>
