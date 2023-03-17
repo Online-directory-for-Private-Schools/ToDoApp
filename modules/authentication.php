@@ -112,7 +112,7 @@ function checkCookie($token) {
         $decoded_UserID = $decodedJWT->id;
 
 
-        $candidateUser = $db->query("SELECT user_id, username FROM users WHERE user_id=(?)", $decoded_UserID)->fetchAll()[0];
+        $candidateUser = $db->query("SELECT user_id FROM users WHERE user_id=(?)", $decoded_UserID)->fetchAll()[0];
 
         
         $isCookieValid = isTokenValid($decodedJWT);
@@ -120,6 +120,7 @@ function checkCookie($token) {
     } catch (Exception $e) {
         $isCookieValid = false;
     }
+
 
     return array(
         "isValid" => $isCookieValid,

@@ -7,6 +7,10 @@ $user = null;
 
 $cookieCheck = checkCookie($_COOKIE["token"]);
 
+$user = null;
+
+$cookieCheck = checkCookie($_COOKIE["token"]);
+
 if ( $cookieCheck["isValid"] ) {
     
     if (!isset($vars['action'])) {
