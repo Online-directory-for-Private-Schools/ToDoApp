@@ -104,6 +104,7 @@ function checkCookie($token) {
             "isValid" => false,
             "user" => null
         );
+
     }
 
     try {
