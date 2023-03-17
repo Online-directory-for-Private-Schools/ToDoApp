@@ -15,4 +15,19 @@
 </head>
 <body >
   <div class="container p-10 text-right">
-  
+  <div class="d-flex justify-content-between">
+
+<form method="get" class="p-4">
+  <select name="lang" onchange="this.form.submit()" id="lang" >
+    <option default value="en"><?php echo LANG_CHOOSE?></option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+  </select>
+</form>
+
+<div class="align-items-center <?php echo ($user == null ? "d-none" : "d-flex")  ?>">
+  <button type="submit" class="btn btn-primary " onclick="logout()"><?php echo LANG_LOGOUT ?></button>
+</div>
+
+
+</div>
