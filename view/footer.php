@@ -1,4 +1,15 @@
+<form method="get" class="p-4">
+  <select name="lang" onchange="this.form.submit()" id="lang" >
+    <option default value="en"><?php echo LANG_CHOOSE?></option>
+    <option value="en">en</option>
+    <option value="fr">fr</option>
+  </select>
+</form>
+
 <script>
+function changeLang() {
+  document.cookie = "lang="
+}
 let editBtnClicked = (editBtn, id, confirmStr) => {
   // check if current todo is being edited or not
 

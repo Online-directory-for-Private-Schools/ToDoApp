@@ -12,7 +12,7 @@ define('LANG_SIGNUP', 'Inscrire');
 define('LANG_LOGOUT', 'Quitter la session');
 define('LANG_LOGIN_ERR', 'E-mail ou Mot de passe incorrecte');
 define('LANG_USER_EXISTS', 'Utlisateur deja inscrit');
-define('LANG_CHOOSE', 'fr');
+define('LANG_CHOOSE', 'Choisir language');
 
 
 ?>
