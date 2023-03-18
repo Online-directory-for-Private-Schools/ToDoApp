@@ -20,8 +20,10 @@ if ( $cookieCheck["isValid"] ) {
     $user = $cookieCheck["user"];
     
 } else {
-    // set default langue for all user as en
-    setcookie("lang", "en");
+    // set default langue to en
+    if($_COOKIE["lang"] == null) {
+        setcookie("lang", "en");
+    }
     header("location: login.php");
 }
 
